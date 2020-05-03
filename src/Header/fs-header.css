@@ -1,0 +1,89 @@
+.fs-header {
+    height: 54.8px;
+    background-color: #100e17;
+    display: flex;
+    align-items: center;
+    
+}
+
+.fs-header .header-logo-container {
+    height: 100%;
+    width: 54.8px;
+    
+}
+
+.fs-header .header-logo-container .header-logo {
+    height: 100%;
+    width: 100%;
+    
+}
+
+.header-container {
+    height: 100%;
+}
+
+.header-menu {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.header-menu-league {
+    display: flex;
+    margin:0;
+    align-items: center;
+    justify-content: flex-start;
+    list-style-type: none;
+    overflow: hidden;
+}
+    
+
+
+.header-menu-league-part {
+    float: left;
+}
+
+.league-name {
+    display: block;
+    text-align: center;
+    padding-left: 5px;
+    padding: 10px;
+    padding-right: 45px;
+    font-family : inherit;
+    
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-menu-league:hover {
+    background-color: #414143;
+}
+
+
+.league-logo {
+    height: 50px;
+}
+
+
+.header-contact-bar-container {
+    display: inline;
+}
+
+.header-contact-bar {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-icon {
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
