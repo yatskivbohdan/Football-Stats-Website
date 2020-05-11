@@ -1,0 +1,37 @@
+.sidebar {
+  list-style-type: none;
+  width: 6vw;
+  background: #414143;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar :hover {
+  background: #292f33;
+}
+
+.sidebar li {
+  padding: 10px 5px 5px 5px;
+}
+
+.sidebar-item {
+  text-decoration:none;
+}
+
+.sidebar-item-content { 
+  display: flex;   
+}
+
+.sidebar-logo {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+}
+
+.sidebar-tla {
+  display: inline;
+  align-self: center;
+  color: white;
+  font-size: 13px;
+  padding-left: 5px;
+}

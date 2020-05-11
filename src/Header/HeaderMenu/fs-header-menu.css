@@ -1,0 +1,24 @@
+.header-menu {
+  display: flex;
+  justify-items: flex-start;
+}
+
+.header-menu-league-container{
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  margin: 0;
+}
+
+.header-menu-league-container:hover {
+  background-color: #292f33;
+}
+
+.header-menu-league {
+  display: flex;
+  margin:0;
+  align-items: center;
+  justify-content: flex-start;
+  list-style-type: none;
+  overflow: hidden;
+}

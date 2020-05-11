@@ -1,0 +1,41 @@
+.league-header-container {
+  height: 50px;
+  background:  #292f33;
+  display: flex;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-self: center;
+   
+}
+
+.menu :hover{
+  background-color: #414143;
+}
+
+.menu-button {
+  border: none;
+  padding: 15px 20.5px; 
+  background:  #292f33;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.menu-item {
+  text-decoration: none;
+  display: flex;
+  padding: 15px 20px; 
+}
+
+.header-menu-selected {
+  background-color: #414143;
+}
+
+.menu-item-content {
+  color: white;
+}

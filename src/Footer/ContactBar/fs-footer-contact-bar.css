@@ -1,0 +1,18 @@
+.footer-contact-bar-container {
+  display: inline;
+}
+
+.footer-contact-bar {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.contact-bar-signature {
+  font-size: 10px;
+}
+
+.contact-container {
+  padding: 10px 10px;
+}

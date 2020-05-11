@@ -1,0 +1,22 @@
+.fs-header {
+  height: 54.8px;
+  background-color: #100e17;
+  display: flex;
+  align-items: center;
+}
+
+.fs-header .header-logo-container {
+  height: 100%;
+  width: 54.8px;
+    
+}
+
+.fs-header .header-logo-container .header-logo {
+  height: 100%;
+  width: 100%;
+    
+}
+
+.selected {
+    background-color: #292f33;
+}
