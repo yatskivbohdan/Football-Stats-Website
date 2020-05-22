@@ -1,0 +1,52 @@
+.games-container {
+    width: 100%;
+   
+}
+
+.select-matchday {
+    width: 100px;
+    color: black;
+    align-self: center;
+}
+
+.match-list {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.match-table {
+    margin: 0px 50px 50px 50px;
+    width: 60%;
+}
+
+.head {
+    font-size: 20px;
+}
+
+.matchday-heading {
+    margin-top: 50px;
+}
+.date {
+    font-size: 17px;
+    margin: 5px;
+}
+.match-table tr td{
+    color: white;
+    font-size: 25px;
+    font-family: inherit;
+}
+
+.match-table tr .team{
+    color: white;
+    font-size: 25px;
+    width: 44%;
+}
+
+.match-table tr .score{
+    color: white;
+    font-size: 25px;
+    width: 4%;
+}
