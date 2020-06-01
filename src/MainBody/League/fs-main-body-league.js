@@ -7,6 +7,7 @@ import SideNav from '../SideNav/fs-main-body-sidenav';
 import LeagueHeader from '../LeagueHeader/fs-main-body-league-header';
 import './fs-main-body-league.css';
 import { Route, Switch} from 'react-router-dom';
+import LeagueGames from '../Games/fs-main-body-games';
 
 export default class League extends React.Component {
   constructor({id, name, apiId, twitter}) {
@@ -16,7 +17,7 @@ export default class League extends React.Component {
       name: name,
       apiId: apiId,
       twitter: twitter,
-      sidebar : true,
+      sidebar : false,
       currMatchday: 1,
     };
     this.toggleSideBar = this.toggleSideBar.bind(this);               
@@ -34,9 +35,9 @@ export default class League extends React.Component {
             {this.state.sidebar && <SideNav id={this.state.id} apiId={this.state.apiId}></SideNav>}
             <Switch>
               <Route path={"/" + this.state.id + "/games"} component={()=>
-                <div>Not available yet...</div>
+                <LeagueGames id={this.state.apiId} md={this.state.currMatchday}></LeagueGames>
               }/>
-              <Route path={"/" + this.state.id} component={() =>
+              <Route path={"/" + this.state.id } component={() =>
                 <div className="league-overview">
                   <LeagueStandings id={this.state.apiId}/>
                   <div className="outer-container">

@@ -11,7 +11,6 @@ export default class Header extends React.Component {
         <div className="header-conatiner">
           <HeaderMenu></HeaderMenu>
         </div>
-        <Search></Search>
       </header>
     );
   }

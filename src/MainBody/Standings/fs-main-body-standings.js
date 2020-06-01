@@ -9,32 +9,14 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
 import './fs-main-body-standings.css';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getStandings } from '../../actions/creators'
 
-function createData(position, logo,team, games, win, draw, loss, scored, missed, points) {
-  return {position, logo, team ,games, win, draw, loss, scored, missed, points };
-}
 
-function parseRows(result) {
-  var rows = [];
-  for (let team of result.standings[0].table){
-    rows.push(createData(team.position, team.team.crestUrl, team.team.name, team.playedGames, team.won, team.draw, team.lost, team.goalsFor, team.goalsAgainst, team.points))
-  } 
-  return rows;
-}
-
-export default class LeagueStandings extends React.Component{
-  constructor({id}) {
-    super();
-    this.state = {
-      id: id,
-      error: null,
-      isLoaded: false,
-      rows: [],
-    };
-  }
-
+class LeagueStandings extends React.Component{
   componentDidMount() {
-    fetch('http://api.football-data.org/v2/competitions/' + this.state.id + '/standings', { 
+    fetch('http://api.football-data.org/v2/competitions/' + this.props.id + '/standings', { 
       method: 'get', 
       headers: new Headers({
 			'X-Auth-Token': 'f197b7b02f4244c4b7080c704dbf4a25'
@@ -43,21 +25,12 @@ export default class LeagueStandings extends React.Component{
     .then(res => res.json())
     .then(
       (result) => {
-        this.setState({
-          isLoaded: true,
-          rows: parseRows(result),
-        });
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      }
-    );
+        this.props.getStandings(result);
+      });
   }
   
   render() {
+    const {teams} = this.props;
     return (
       <TableContainer className="standings-container" >
         <p>Standings</p>
@@ -71,11 +44,11 @@ export default class LeagueStandings extends React.Component{
               <TableCell align="right">D&nbsp;</TableCell>
               <TableCell align="right">L&nbsp;</TableCell>
               <TableCell align="center">G&nbsp;</TableCell>
-              <TableCell align="right">Pts&nbsp;</TableCell>
+              <TableCell align="center">Pts&nbsp;</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {this.state.rows.map((row) => (
+            {teams.map((row) => (
               <TableRow key={row.name}>
                   <TableCell align="left">{row.position}</TableCell>
                 <TableCell component="th" scope="row">
@@ -89,7 +62,7 @@ export default class LeagueStandings extends React.Component{
                 <TableCell align="right">{row.draw}</TableCell>
                 <TableCell align="right">{row.loss}</TableCell>
                 <TableCell align="center">{row.scored}:{row.missed}</TableCell>
-                <TableCell align="right">{row.points}</TableCell>
+                <TableCell align="center">{row.points}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -98,3 +71,13 @@ export default class LeagueStandings extends React.Component{
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  teams: state.teams,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getStandings: (result) => dispatch(getStandings(result))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LeagueStandings)
